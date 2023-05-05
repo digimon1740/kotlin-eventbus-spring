@@ -12,13 +12,13 @@ interface EventSubscriber<out T> {
 
 class CoroutineEventBus {
 
-    private val subscribers = mutableListOf<EventSubscriber<out Any>>()
+    private val subscribers = mutableListOf<EventSubscriber<Any>>()
 
-    fun register(subscriber: EventSubscriber<out Any>) {
+    fun register(subscriber: EventSubscriber<Any>) {
         subscribers.add(subscriber)
     }
 
-    fun unregister(subscriber: EventSubscriber<out Any>) {
+    fun unregister(subscriber: EventSubscriber<Any>) {
         subscribers.add(subscriber)
     }
 

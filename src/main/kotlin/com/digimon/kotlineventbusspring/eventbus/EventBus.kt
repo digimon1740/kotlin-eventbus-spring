@@ -10,19 +10,19 @@ interface EventSubscriber<out T> {
     fun onEvent(event: @UnsafeVariance T)
 }
 
-class CoroutineEventBus {
+class CoroutineEventBus<T> {
 
-    private val subscribers = mutableListOf<EventSubscriber<Any>>()
+    private val subscribers = mutableListOf<EventSubscriber<T>>()
 
-    fun register(subscriber: EventSubscriber<Any>) {
+    fun register(subscriber: EventSubscriber<T>) {
         subscribers.add(subscriber)
     }
 
-    fun unregister(subscriber: EventSubscriber<Any>) {
+    fun unregister(subscriber: EventSubscriber<T>) {
         subscribers.add(subscriber)
     }
 
-    suspend fun post(event: Any) = coroutineScope {
+    suspend fun post(event: T) = coroutineScope {
         subscribers.forEach {
             launch(Dispatchers.IO + SupervisorJob()) {
                 it.onEvent(event)

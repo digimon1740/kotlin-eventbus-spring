@@ -1,7 +1,7 @@
 package com.digimon.kotlineventbusspring
 
+import com.digimon.kotlineventbusspring.event.UserCreated
 import com.digimon.kotlineventbusspring.eventbus.EventSubscriber
-import com.digimon.kotlineventbusspring.service.UserCreated
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 

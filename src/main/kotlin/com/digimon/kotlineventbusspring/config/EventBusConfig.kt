@@ -1,6 +1,7 @@
 package com.digimon.kotlineventbusspring.config
 
 import com.digimon.kotlineventbusspring.EmailSender
+import com.digimon.kotlineventbusspring.event.UserCreated
 import com.digimon.kotlineventbusspring.eventbus.CoroutineEventBus
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -12,10 +13,9 @@ class EventBusConfig(
 
 
     @Bean
-    fun userEventBus(): CoroutineEventBus {
-        return CoroutineEventBus().apply {
-            register(welcomeEmailSender)
-        }
+    fun userEventBus() = CoroutineEventBus<UserCreated>().apply {
+        register(welcomeEmailSender)
     }
+
 
 }
